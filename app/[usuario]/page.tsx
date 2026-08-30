@@ -2,8 +2,13 @@ import { tiktokers } from "@/lib/tiktokers";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
-export default function PerfilPage({ params }: { params: { usuario: string } }) {
-  const tiktoker = tiktokers.find((t) => t.usuario === params.usuario);
+export default async function PerfilPage({
+  params,
+}: {
+  params: Promise<{ usuario: string }>;
+}) {
+  const { usuario } = await params;
+  const tiktoker = tiktokers.find((t) => t.usuario === usuario);
   if (!tiktoker) return notFound();
 
   return (
