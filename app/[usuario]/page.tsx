@@ -47,10 +47,10 @@ export default async function PerfilPage({
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 w-full px-5 py-3.5 rounded-2xl bg-gradient-to-r from-white/95 to-white/90 hover:from-white hover:to-white shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
+              className="relative flex items-center justify-center w-full px-5 py-3.5 rounded-2xl bg-gradient-to-r from-white/95 to-white/90 hover:from-white hover:to-white shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
             >
               <div
-                className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-white shadow-sm ${
+                className={`absolute left-5 w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-white shadow-sm ${
                   link.icono === "whatsapp"
                     ? "bg-[#25D366]"
                     : link.icono === "telegram"
