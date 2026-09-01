@@ -1,8 +1,9 @@
-import { tiktokers } from "@/lib/tiktokers";
+import { prisma } from "@/lib/prisma";
 import { temas } from "@/lib/temas";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { LinkIcon } from "@/components/LinkIcon";
+import type { Link, Tema } from "@/lib/tiktokers";
 
 export default async function PerfilPage({
   params,
@@ -10,10 +11,11 @@ export default async function PerfilPage({
   params: Promise<{ usuario: string }>;
 }) {
   const { usuario } = await params;
-  const tiktoker = tiktokers.find((t) => t.usuario === usuario);
+  const tiktoker = await prisma.tiktoker.findUnique({ where: { usuario } });
   if (!tiktoker) return notFound();
 
-  const degradado = temas[tiktoker.tema ?? "morado"];
+  const degradado = temas[(tiktoker.tema as Tema) ?? "morado"];
+  const links = (tiktoker.links as unknown as Link[]) ?? [];
 
   return (
     <main
@@ -39,9 +41,9 @@ export default async function PerfilPage({
         )}
 
         <div className="mt-8 w-full space-y-4">
-          {tiktoker.links.map((link) => (
+          {links.map((link) => (
             <a
-              key={link.url}
+              key={link.url + link.titulo}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"

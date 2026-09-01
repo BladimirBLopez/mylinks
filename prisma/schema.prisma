@@ -1,0 +1,21 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+  engineType      = "client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Tiktoker {
+  id       String   @id @default(cuid())
+  usuario  String   @unique
+  nombre   String
+  foto     String
+  bio      String?
+  tema     String   @default("morado")
+  links    Json
+  creadoEn DateTime @default(now())
+}
