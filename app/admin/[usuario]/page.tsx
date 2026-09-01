@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import TiktokerForm from "@/components/TiktokerForm";
-import type { Link as LinkType, Tema } from "@/lib/tiktokers";
+import type { Link as LinkType, Tema, EstiloBoton } from "@/lib/tiktokers";
 
 export default async function EditarTiktokerPage({
   params,
@@ -24,6 +24,7 @@ export default async function EditarTiktokerPage({
             foto: tiktoker.foto,
             bio: tiktoker.bio ?? "",
             tema: (tiktoker.tema as Tema) ?? "morado",
+            estiloBoton: (tiktoker.estiloBoton as EstiloBoton) ?? "clasico",
             links: (tiktoker.links as unknown as LinkType[]) ?? [],
           }}
         />
