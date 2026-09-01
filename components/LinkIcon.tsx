@@ -1,4 +1,3 @@
-import { MessageCircle, Send, Mail, Link2, Music2 } from "lucide-react";
 import type { IconoLink } from "@/lib/tiktokers";
 
 function Svg({
@@ -20,10 +19,18 @@ function Svg({
   );
 }
 
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <Svg className={className}>
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-3.77V2h-3.45v13.67a2.9 2.9 0 1 1-2-2.74V9.42a6.35 6.35 0 1 0 5.45 6.25V8.96a8.2 8.2 0 0 0 4.8 1.55V7.07a4.84 4.84 0 0 1-1.03-.38z" />
+    </Svg>
+  );
+}
+
 function InstagramIcon({ className }: { className?: string }) {
   return (
     <Svg className={className}>
-      <path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2zm0 1.8c-2.67 0-2.99.01-4.04.06-.87.04-1.34.18-1.65.3-.42.16-.71.36-1.03.68-.32.32-.52.61-.68 1.03-.12.31-.26.78-.3 1.65C4.25 8.16 4.24 8.48 4.24 11.15v.85c0 2.67.01 2.99.06 4.04.04.87.18 1.34.3 1.65.16.42.36.71.68 1.03.32.32.61.52 1.03.68.31.12.78.26 1.65.3 1.05.05 1.37.06 4.04.06s2.99-.01 4.04-.06c.87-.04 1.34-.18 1.65-.3.42-.16.71-.36 1.03-.68.32-.32.52-.61.68-1.03.12-.31.26-.78.3-1.65.05-1.05.06-1.37.06-4.04s-.01-2.99-.06-4.04c-.04-.87-.18-1.34-.3-1.65a2.77 2.77 0 0 0-.68-1.03 2.77 2.77 0 0 0-1.03-.68c-.31-.12-.78-.26-1.65-.3C14.99 3.81 14.67 3.8 12 3.8zm0 3.05a5.15 5.15 0 1 1 0 10.3 5.15 5.15 0 0 1 0-10.3zm0 1.8a3.35 3.35 0 1 0 0 6.7 3.35 3.35 0 0 0 0-6.7zm5.35-2.02a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z" />
+      <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0-0-6zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z" />
     </Svg>
   );
 }
@@ -31,7 +38,23 @@ function InstagramIcon({ className }: { className?: string }) {
 function FacebookIcon({ className }: { className?: string }) {
   return (
     <Svg className={className}>
-      <path d="M13.5 21v-7.9h2.65l.4-3.08h-3.05V8.06c0-.89.25-1.5 1.53-1.5h1.63V3.8c-.28-.04-1.25-.12-2.38-.12-2.35 0-3.96 1.44-3.96 4.07v2.27H7.68v3.08h2.64V21h3.18z" />
+      <path d="M13.5 21v-7.9h2.65l.4-3.08H13.5V8.06c0-.89.25-1.5 1.53-1.5h1.63V3.8c-.28-.04-1.25-.12-2.38-.12-2.35 0-3.96 1.44-3.96 4.07v2.27H7.68v3.08h2.64V21h3.18z" />
+    </Svg>
+  );
+}
+
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <Svg className={className}>
+      <path d="M20.52 3.48A11.84 11.84 0 0 0 12.08 0C5.5 0 .15 5.35.15 11.93c0 2.1.55 4.15 1.6 5.96L.05 24l6.25-1.64a11.9 11.9 0 0 0 5.78 1.49h.01c6.58 0 11.92-5.35 11.92-11.93 0-3.18-1.24-6.17-3.49-8.44zM12.09 21.8c-1.81 0-3.58-.49-5.13-1.42l-.37-.22-3.71.97.99-3.62-.24-.37a9.86 9.86 0 0 1-1.51-5.21c0-5.43 4.42-9.85 9.86-9.85a9.8 9.8 0 0 1 6.97 2.89 9.8 9.8 0 0 1 2.89 6.98c0 5.43-4.42 9.85-9.85 9.85zm5.41-7.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.21 5.09 4.5.71.31 1.26.49 1.69.63.71.23 1.35.2 1.86.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z" />
+    </Svg>
+  );
+}
+
+function TelegramIcon({ className }: { className?: string }) {
+  return (
+    <Svg className={className}>
+      <path d="M21.6 3.2 2.5 10.57c-.87.35-.86.83-.16 1.05l4.9 1.53 1.88 5.82c.23.64.12.9.79.9.52 0 .75-.24 1.03-.52l2.39-2.32 4.97 3.67c.91.5 1.56.24 1.79-.84l3.25-15.33c.34-1.32-.5-1.92-1.74-1.34zM8 12.8l10.99-6.93c.54-.33 1.03-.15.62.2l-8.9 8.04-.35 3.75L8 12.8z" />
     </Svg>
   );
 }
@@ -39,7 +62,7 @@ function FacebookIcon({ className }: { className?: string }) {
 function YoutubeIcon({ className }: { className?: string }) {
   return (
     <Svg className={className}>
-      <path d="M21.58 7.2c-.23-.86-.9-1.53-1.76-1.76C18.25 5 12 5 12 5s-6.25 0-7.82.44c-.86.23-1.53.9-1.76 1.76C2 8.77 2 12 2 12s0 3.23.42 4.8c.23.86.9 1.53 1.76 1.76C5.75 19 12 19 12 19s6.25 0 7.82-.44c.86-.23 1.53-.9 1.76-1.76C22 15.23 22 12 22 12s0-3.23-.42-4.8zM10 15.02V8.98L15.2 12 10 15.02z" />
+      <path d="M23.5 6.2a3 3 0 0 0-2.12-2.12C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.58A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.12 2.12C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.58a3 3 0 0 0 2.12-2.12A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.55 16.1V7.9L16.8 12l-7.25 4.1z" />
     </Svg>
   );
 }
@@ -60,6 +83,22 @@ function XIcon({ className }: { className?: string }) {
   );
 }
 
+function EmailIcon({ className }: { className?: string }) {
+  return (
+    <Svg className={className}>
+      <path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.5l9 5.5 9-5.5V7H3zm18 10V9.83l-8.48 5.19a1 1 0 0 1-1.04 0L3 9.83V17h18z" />
+    </Svg>
+  );
+}
+
+function LinkDefaultIcon({ className }: { className?: string }) {
+  return (
+    <Svg className={className}>
+      <path d="M10.59 13.41a1.99 1.99 0 0 0 2.82 0l3.59-3.59a2 2 0 0 0-2.83-2.83l-1.59 1.59-1.41-1.41 1.59-1.59a4 4 0 0 1 5.66 5.66l-3.59 3.59a4 4 0 0 1-5.66 0l1.42-1.42zm2.82-2.82a1.99 1.99 0 0 0-2.82 0L7 14.18a2 2 0 1 0 2.83 2.83l1.59-1.59 1.41 1.41-1.59 1.59a4 4 0 0 1-5.66 0l-3.59-3.59a4 4 0 0 1 0-5.66l1.42 1.42z" />
+    </Svg>
+  );
+}
+
 export function LinkIcon({
   icono,
   className,
@@ -69,15 +108,15 @@ export function LinkIcon({
 }) {
   switch (icono) {
     case "tiktok":
-      return <Music2 className={className} />;
+      return <TikTokIcon className={className} />;
     case "instagram":
       return <InstagramIcon className={className} />;
     case "facebook":
       return <FacebookIcon className={className} />;
     case "whatsapp":
-      return <MessageCircle className={className} />;
+      return <WhatsAppIcon className={className} />;
     case "telegram":
-      return <Send className={className} />;
+      return <TelegramIcon className={className} />;
     case "youtube":
       return <YoutubeIcon className={className} />;
     case "x":
@@ -85,8 +124,8 @@ export function LinkIcon({
     case "linkedin":
       return <LinkedinIcon className={className} />;
     case "email":
-      return <Mail className={className} />;
+      return <EmailIcon className={className} />;
     default:
-      return <Link2 className={className} />;
+      return <LinkDefaultIcon className={className} />;
   }
 }
