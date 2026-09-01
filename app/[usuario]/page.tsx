@@ -54,7 +54,7 @@ export default async function PerfilPage({
                   : estiloBoton === "minimalista"
                   ? "rounded-xl bg-white/20 hover:bg-white/30 border border-white/30 shadow-sm hover:shadow-md"
                   : "rounded-2xl bg-gradient-to-r from-white/95 to-white/90 hover:from-white hover:to-white shadow-md hover:shadow-lg hover:scale-[1.02]"
-              }"
+              }`
             >
               <div
                 className={`absolute left-5 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-white shadow-sm ${
