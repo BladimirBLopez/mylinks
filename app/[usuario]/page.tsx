@@ -49,7 +49,31 @@ export default async function PerfilPage({
               rel="noopener noreferrer"
               className="flex items-center gap-3 w-full px-5 py-3.5 rounded-2xl bg-gradient-to-r from-white/95 to-white/90 hover:from-white hover:to-white shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
             >
-              <LinkIcon icono={link.icono} className="w-5 h-5 text-fuchsia-600 shrink-0" />
+              <div
+                className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-white shadow-sm ${
+                  link.icono === "whatsapp"
+                    ? "bg-[#25D366]"
+                    : link.icono === "telegram"
+                    ? "bg-[#229ED9]"
+                    : link.icono === "facebook"
+                    ? "bg-[#1877F2]"
+                    : link.icono === "youtube"
+                    ? "bg-[#FF0000]"
+                    : link.icono === "linkedin"
+                    ? "bg-[#0A66C2]"
+                    : link.icono === "instagram"
+                    ? "bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600"
+                    : link.icono === "tiktok"
+                    ? "bg-black"
+                    : link.icono === "x"
+                    ? "bg-black"
+                    : link.icono === "email"
+                    ? "bg-gray-500"
+                    : "bg-gray-600"
+                }`}
+              >
+                <LinkIcon icono={link.icono} className="w-5 h-5" />
+              </div>
               <span className="font-semibold text-gray-800">{link.titulo}</span>
             </a>
           ))}
