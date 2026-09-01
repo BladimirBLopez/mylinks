@@ -1,9 +1,19 @@
 import { NextResponse } from "next/server";
-import { createHmac, timingSafeEqual } from "crypto";
 
-function firmar(usuario: string) {
+async function firmar(usuario: string) {
   const secreto = process.env.ADMIN_PASSWORD!;
-  return createHmac("sha256", secreto).update(usuario).digest("hex");
+  const encoder = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    "raw",
+    encoder.encode(secreto),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+  const firma = await crypto.subtle.sign("HMAC", key, encoder.encode(usuario));
+  return Array.from(new Uint8Array(firma))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
 }
 
 export async function POST(req: Request) {
@@ -16,7 +26,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Credenciales inválidas" }, { status: 401 });
   }
 
-  const token = firmar(usuario);
+  const token = await firmar(usuario);
   const res = NextResponse.json({ ok: true });
   res.cookies.set("mylinks_admin", token, {
     httpOnly: true,
