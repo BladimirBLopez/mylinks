@@ -3,7 +3,7 @@ import { temas } from "@/lib/temas";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { LinkIcon } from "@/components/LinkIcon";
-import type { Link, Tema } from "@/lib/tiktokers";
+import type { Link, Tema, EstiloBoton } from "@/lib/tiktokers";
 
 export default async function PerfilPage({
   params,
@@ -15,6 +15,7 @@ export default async function PerfilPage({
   if (!tiktoker) return notFound();
 
   const degradado = temas[(tiktoker.tema as Tema) ?? "morado"];
+  const estiloBoton = (tiktoker.estiloBoton as EstiloBoton) ?? "clasico";
   const links = (tiktoker.links as unknown as Link[]) ?? [];
 
   return (
@@ -47,10 +48,16 @@ export default async function PerfilPage({
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative flex items-center justify-center w-full px-5 py-3.5 rounded-2xl bg-gradient-to-r from-white/95 to-white/90 hover:from-white hover:to-white shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
+              className={`relative flex items-center justify-center w-full px-5 py-3.5 transition-all duration-200 ${
+                estiloBoton === "pildora"
+                  ? "rounded-full bg-gradient-to-r from-white/95 to-white/90 hover:from-white hover:to-white shadow-md hover:shadow-lg hover:scale-[1.02]"
+                  : estiloBoton === "minimalista"
+                  ? "rounded-xl bg-white/20 hover:bg-white/30 border border-white/30 shadow-sm hover:shadow-md"
+                  : "rounded-2xl bg-gradient-to-r from-white/95 to-white/90 hover:from-white hover:to-white shadow-md hover:shadow-lg hover:scale-[1.02]"
+              }"
             >
               <div
-                className={`absolute left-5 w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-white shadow-sm ${
+                className={`absolute left-5 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-white shadow-sm ${
                   link.icono === "whatsapp"
                     ? "bg-[#25D366]"
                     : link.icono === "telegram"
@@ -72,7 +79,7 @@ export default async function PerfilPage({
                     : "bg-gray-600"
                 }`}
               >
-                <LinkIcon icono={link.icono} className="w-5 h-5" />
+                <LinkIcon icono={link.icono} className="w-6 h-6" />
               </div>
               <span className="font-semibold text-gray-800">{link.titulo}</span>
             </a>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import type { IconoLink, Tema, Link as LinkType } from "@/lib/tiktokers";
+import type { IconoLink, Tema, EstiloBoton, Link as LinkType } from "@/lib/tiktokers";
 
 const iconos: IconoLink[] = [
   "tiktok", "instagram", "facebook", "whatsapp", "telegram",
@@ -10,6 +10,12 @@ const iconos: IconoLink[] = [
 ];
 
 const temasDisponibles: Tema[] = ["rosa", "morado", "azul", "oscuro", "atardecer"];
+
+const estilosBoton: { valor: EstiloBoton; nombre: string }[] = [
+  { valor: "clasico", nombre: "Clásico" },
+  { valor: "pildora", nombre: "Píldora" },
+  { valor: "minimalista", nombre: "Minimalista" },
+];
 
 type Props = {
   modo: "crear" | "editar";
@@ -19,6 +25,7 @@ type Props = {
     foto: string;
     bio: string;
     tema: Tema;
+    estiloBoton: EstiloBoton;
     links: LinkType[];
   };
 };
@@ -30,6 +37,9 @@ export default function TiktokerForm({ modo, inicial }: Props) {
   const [foto, setFoto] = useState(inicial?.foto ?? "");
   const [bio, setBio] = useState(inicial?.bio ?? "");
   const [tema, setTema] = useState<Tema>(inicial?.tema ?? "morado");
+  const [estiloBoton, setEstiloBoton] = useState<EstiloBoton>(
+    inicial?.estiloBoton ?? "clasico"
+  );
   const [links, setLinks] = useState<LinkType[]>(inicial?.links ?? []);
   const [error, setError] = useState("");
   const [guardando, setGuardando] = useState(false);
@@ -53,7 +63,7 @@ export default function TiktokerForm({ modo, inicial }: Props) {
     setError("");
     setGuardando(true);
 
-    const body = { usuario, nombre, foto, bio, tema, links };
+    const body = { usuario, nombre, foto, bio, tema, estiloBoton, links };
     const url =
       modo === "crear"
         ? "/api/admin/tiktokers"
@@ -126,6 +136,21 @@ export default function TiktokerForm({ modo, inicial }: Props) {
         >
           {temasDisponibles.map((t) => (
             <option key={t} value={t}>{t}</option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label className="block text-sm text-gray-300 mb-1">Estilo de botones</label>
+        <select
+          value={estiloBoton}
+          onChange={(e) => setEstiloBoton(e.target.value as EstiloBoton)}
+          className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white outline-none"
+        >
+          {estilosBoton.map((estilo) => (
+            <option key={estilo.valor} value={estilo.valor}>
+              {estilo.nombre}
+            </option>
           ))}
         </select>
       </div>

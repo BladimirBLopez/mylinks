@@ -24,6 +24,7 @@ export async function PUT(
       foto: data.foto,
       bio: data.bio || null,
       tema: data.tema || "morado",
+      estiloBoton: data.estiloBoton || "clasico",
       links: data.links || [],
     },
   });

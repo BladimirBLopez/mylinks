@@ -16,6 +16,7 @@ export async function POST(req: Request) {
         foto: data.foto,
         bio: data.bio || null,
         tema: data.tema || "morado",
+        estiloBoton: data.estiloBoton || "clasico",
         links: data.links || [],
       },
     });

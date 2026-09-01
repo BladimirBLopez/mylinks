@@ -15,7 +15,8 @@ model Tiktoker {
   nombre   String
   foto     String
   bio      String?
-  tema     String   @default("morado")
-  links    Json
+  tema        String   @default("morado")
+  estiloBoton String   @default("clasico")
+  links       Json
   creadoEn DateTime @default(now())
 }
